@@ -5,6 +5,11 @@ In this lab, David is going to create an HTTP analytics profile and attach it to
 the VIP for the legacy application you just created. This will enable the BIG-IP to send HTTP analytics to the BIG-IQ and populate
 the dashboard.
 
+.. include:: /accesslab.rst
+
+Tasks
+^^^^^
+
 1. Go to **Configuration > Local Traffic > Profiles** and look at all existing analytics profiles
    available in this BIG-IQ. You can use the filter to look for a specific profile.
 
@@ -85,13 +90,13 @@ Wait for the deployment to complete.
   :align: center
 
 5. Back on the Applications tab > Applications, go back to the ``legacy-app-service``.
-   Under Traffic Management > Configuration > Profile HTTP Analytics, notice the warning disappeared.
+   Under **F5 Services**, Traffic Management > Configuration > Profile HTTP Analytics, notice the warning disappeared.
 
 .. image:: ../pictures/module6/lab-2-9.png
   :scale: 40%
   :align: center
 
-6. From the lab environment, launch a xRDP/noVNC session to have access to the Ubuntu Desktop. 
+6. From the lab environment, launch a remote desktop session to have access to the Ubuntu Desktop. 
 To do this, in your lab environment, click on the *Access* button
 of the *Ubuntu Lamp Server* system and select *noVNC* or *xRDP*.
 

@@ -6,6 +6,11 @@ could deploy their applications.
 
 In BIG-IQ 7.1, we can associate devices or device groups with a role.
 
+.. include:: /accesslab.rst
+
+Tasks
+^^^^^
+
 1. Login to BIG-IQ as **david** by opening a browser and go to: ``https://10.1.1.4``
 
 2. Navigate to System > User Management > Users
@@ -44,6 +49,8 @@ Save & Close
 
 - Devices: ``10.1.1.11 SJC-vBIGIP01.termmarc.com``
 - Device Groups: *Empty*
+
+.. warning:: Do not forget to remove the ``cm-bigip-allBigIpDevices`` from the Device Groups list.
 
 .. image:: ../pictures/module5/lab-1-5.png
   :scale: 40%

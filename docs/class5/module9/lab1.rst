@@ -1,6 +1,9 @@
 Lab 9.1: Prepare your Azure Account 
 -----------------------------------
+.. include:: /accesslab.rst
 
+Tasks
+^^^^^
 .. warning:: If you already created an Azure Application in Class 2 (Azure SSG), you do not need to recreate this item.
 
 Setting up a Service Principal Account
@@ -99,11 +102,7 @@ Once you've subscribed, you should see something like this:
 
 The below script takes Azure parameters and creates Azure resources. These resources are used in BIG-IQ as a place to our BIG-IP to be deployed and configured.
 
-SSH Ubuntu host in lab environment:
-
-.. image:: pictures/image22.png
-  :align: left
-  :scale: 60%
+SSH Ubuntu host in lab environment.
 
 Navigate to: ``cd f5-azure-vpn-ssg``
 
@@ -117,8 +116,8 @@ Modify the following four items to reflect the Azure Application you created abo
 - SERVICE_PRINCIPAL_SECRET: <Service Principal Secret>
 - PREFIX: Specify a prefix that will be used on each object automatically created.
 
-Execute the Ansible scripts to create Azure resources.
+Execute the Ansible scripts to create the Azure resources (including VPN between Azure and the lab), cloud provider and cloud environment.
 
 ``./000-RUN_ALL.sh ve``
 
-.. note:: The Azure objects can take up to 45 minutes to complete.
+.. note:: The Azure objects can take up to 15 minutes to complete.

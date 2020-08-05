@@ -6,10 +6,21 @@ under the **Monitoring** Tab: Device Health, DNS, Access, WAF.
 
 Starting BIG-IQ 6.x, BIG-IQ brings the Analytics per Application under the **Application** tab.
 
+Beginning in BIG-IQ 6.0.0 and BIG-IP 13.1.0.5, the Analytics are being pushed from the BIG-IP to the DCDs.
+Therefore, the communication between the BIG-IP and DCD needs to be bi-directional (e.g. if your BIG-IQ/DCD are on premises
+the BIG-IP VE are in the public cloud such as AWS or Azure, you will need a VPN between you Datacenter and your public cloud network).
+
 .. warning:: For more details on how the Analytics are collected on the BIG-IQ, 
              read `K96505382`_: The BIG-IP system now pushes statistics data to BIG-IQ DCD.
 
 .. _K96505382: https://support.f5.com/csp/article/K96505382
+
+
+.. raw:: html
+
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/5iWZQihMV_8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+.. include:: /accesslab.rst
 
 General Views and Configuration Applications
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

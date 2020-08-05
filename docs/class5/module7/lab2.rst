@@ -1,6 +1,9 @@
 Lab 7.2: Device Onboarding with BIG-IQ
 --------------------------------------
+.. include:: /accesslab.rst
 
+Tasks
+^^^^^
 Prerequisites to this module:
   - A BIG-IP available that you would like to target with F5 Declarative Onboarding
   - Connectivity to/from the BIG-IQ (CM/DCD) and the BIG-IP if you are going to onboard the BIG-IP into BIG-IQ
@@ -103,7 +106,7 @@ Configure Declarative Onboarding for our VMWare BIG-IP VE
 +-------------------------------+---------------------------+
 | BIG-IP Username               | admin                     |
 +-------------------------------+---------------------------+
-| BIG-IP Password               | admin                     |
+| BIG-IP Password               | u7BnD@4f5                 |
 +-------------------------------+---------------------------+
 | BIG-IQ Host                   |                           |
 +-------------------------------+---------------------------+
@@ -117,6 +120,9 @@ Configure Declarative Onboarding for our VMWare BIG-IP VE
 +-------------------------------+---------------------------+
 | Revoke From                   | Current BIG-IQ byol-pool  |
 +-------------------------------+---------------------------+
+
+.. warning:: In the License class, you must supply the same BIG-IP admin username and password as the ones entered for the **User class**. 
+             Also the Hypervisor needs to be selected only if reachable = false.
 
 +-------------------------------+---------------------------+
 | Provision                     |                           |

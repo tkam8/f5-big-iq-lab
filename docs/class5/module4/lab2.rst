@@ -1,6 +1,9 @@
 Lab 4.2: Deploy multiple changes and restore single change
 ----------------------------------------------------------
+.. include:: /accesslab.rst
 
+Tasks
+^^^^^
 In this deployment, we will be using the 1\ :sup:`st` change made to app1pool, as well as 2\ :sup:`nd` change made to app2pool in the previous task 5.1, to demonstrate the ability to partially roll back one of the two changes for this deployment.
 
 1. First, we will need to deploy the 2\ :sup:`nd` change that consists of a few changes to the app2pool.
@@ -61,9 +64,9 @@ User can “Create Evaluation” or if urgent “Restore Immediately”.
 
 |image14|
 
--  Select “Add” for Source Objects.s
+-  Select “Add” for Source Objects.
 
--  Select “/Common/app1pool” and click on “Add” to add the object to Selected tab.
+-  Select “/Common/app2pool” and click on “Add” to add the object to Selected tab.
 
 -  Verify difference between BIG-IQ and Snapshot.
 

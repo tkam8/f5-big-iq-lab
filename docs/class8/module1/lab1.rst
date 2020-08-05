@@ -12,9 +12,11 @@ an HTTP Application Service and how to use BIG-IQ Bot Dashboards to monitors the
 
 Official documentation can be found on the `BIG-IQ Knowledge Center`_ and see `DevCentral`_ article on this subject.
 
-.. _`BIG-IQ Knowledge Center`: https://techdocs.f5.com/en-us/bigiq-7-0-0/mitigating-managing-bot-defense-using-big-iq/monitoring-bot-defense-activity.html
+.. _`BIG-IQ Knowledge Center`: https://techdocs.f5.com/en-us/bigiq-7-1-0/managing-bot-defense-using-big-iq.html
 
 .. _`DevCentral`: https://devcentral.f5.com/s/articles/Configuring-Unified-Bot-Defense-with-BIG-IQ-Centralized-Management
+
+.. include:: /accesslab.rst
 
 Workflow
 ^^^^^^^^
@@ -56,6 +58,8 @@ ASM Bot Log Destinations and Publisher creation using UI
 1. Create the DCD Pool and Log Destination. Navigate to Configuration Tab > LOCAL TRAFFIC > Pools, click Create.
 
 - Name: ``bot-remote-dcd-asm-pool``
+- Silo: ``Default``
+- Device ``SEA-vBIGIP01.termmarc.com``
 - Health Monitors: ``tcp``
 - Pool Member/Port: ``10.1.10.6:8514``
 
@@ -124,20 +128,14 @@ Create a Deployment to deploy the Remote Logging Changes on the SEA BIG-IP.
 
 Make sure the deployment is successful.
 
+.. note:: More information `Managing Logging Profiles in Shared Security`_.
+
+.. _Managing Logging Profiles in Shared Security: https://techdocs.f5.com/en-us/bigiq-7-1-0/big-iq-security/managing-logging-profiles-in-shared-security.html
+
 ASM Bot Log Destinations and Publisher creation using API/AS3
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-1. From the lab environment, launch a xRDP/noVNC session to have access to the Ubuntu Desktop. 
-To do this, in your lab environment, click on the *Access* button of the *Ubuntu Lamp Server* 
-system and select *noVNC* or *xRDP*.
-
-.. note:: Modern laptops with higher resolutions you might want to use 1440x900 and once XRDP is launched Zoom to 200%.
-
-.. image:: ../../pictures/udf_ubuntu.png
-    :align: left
-    :scale: 40%
-
-|
+1. From the lab environment, launch a remote desktop session to have access to the Ubuntu Desktop. 
 
 Open Chrome and Postman.
 
@@ -222,7 +220,7 @@ obtain a new token by re-sending the ``BIG-IQ Token``
           }
       }
 
-3. Navigate to Device tab and re-discover/re-import SEA-vBIGIP01.termmarc.com.
+3. Navigate to Devices tab and re-discover/re-import SEA-vBIGIP01.termmarc.com.
 
 .. image:: ../pictures/module1/img_module1_lab1_7.png
   :align: center
@@ -422,17 +420,7 @@ Connect via ``SSH`` to the system *Ubuntu Lamp Server* and run:
 
 ``while true; do curl http://10.1.10.126; sleep 1; done``
 
-From the lab environment, launch a xRDP/noVNC session to have access to the Ubuntu Desktop. 
-To do this, in your lab environment, click on the *Access* button
-of the *Ubuntu Lamp Server* system and select *noVNC* or *xRDP*.
-
-.. note:: Modern laptops with higher resolutions you might want to use 1440x900 and once XRDP is launched Zoom to 200%.
-
-.. image:: ../../pictures/udf_ubuntu.png
-    :align: left
-    :scale: 40%
-
-|
+From the lab environment, launch a remote desktop session to have access to the Ubuntu Desktop. 
 
 2. Open Chrome and Navigate to the URL http\:\/\/10.1.10.126.
 
@@ -521,7 +509,7 @@ Annex | ASM Bot Defense & Logging Profiles creation from BIG-IP
 
 |
 
-4. Navigate to Device tab and re-discover/re-import SEA-vBIGIP01.termmarc.com.
+4. Navigate to Devices tab and re-discover/re-import SEA-vBIGIP01.termmarc.com.
 
 .. image:: ../pictures/module1/img_module1_lab1_7.png
   :align: center

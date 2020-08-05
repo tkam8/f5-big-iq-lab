@@ -1,6 +1,11 @@
 Lab 1.1: Import a device to an existing Cluster
 -----------------------------------------------
 
+.. include:: /accesslab.rst
+
+Tasks
+^^^^^
+
 .. warning:: **BOS-vBIGIP02.termmarc.com (10.1.10.10)** is currently managed by BIG-IQ CM, however it is in the same Device Service Cluster (DSC) with BOS-vBIGIP01. We will be adding this device to BIG-IQ. 
 
 Login to the BIG-IQ system with your user name (david) and password (david).
@@ -15,7 +20,7 @@ Click the Add Device button in the main pane.
 
 a. In the IP Address field, type the IP address of the device: **10.1.10.10**
 
-b. In the User Name and Password fields, type the user name (david) and password (david) for the device.
+b. In the User Name and Password fields, type the user name (admin) and password (purple123) for the device.
 
 c. Cluster Display Name: **Use Existing**.
 
@@ -34,7 +39,7 @@ e. Leave everything else default.
    * - ``username``
      - admin
    * - ``password``
-     - admin
+     - purple123
    * - ``Cluster Display Name``
      - Use Existing
    * - ``Select A Cluster``

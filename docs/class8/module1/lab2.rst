@@ -23,6 +23,8 @@ Official documentation can be found on the `BIG-IQ Knowledge Center`_ and see `D
 
 .. _`DevCentral`: https://devcentral.f5.com/s/articles/Configuring-L7-Behavioral-DoS-Protection-with-BIG-IQ-Centralized-Management
 
+.. include:: /accesslab.rst
+
 Workflow
 ^^^^^^^^
 
@@ -35,7 +37,7 @@ Workflow
 Prerequisites
 ^^^^^^^^^^^^^
 
-1. Navigate to the Device tab and complete Discovery & Import on **SJC-vBIGIP01.termmarc.com**. 
+1. Navigate to the Devices tab and complete Discovery & Import on **SJC-vBIGIP01.termmarc.com**. 
    Choose *Create Version* for default LTM profiles and *Set all BIG-IP* for other objects.
 
 .. note:: It is recommended to use latest version of BIG-IP. In this lab SJC BIG-IP has 15.1 and will be used.
@@ -87,21 +89,15 @@ Create a Deployment to deploy the Remote Logging Changes on the SJC BIG-IP.
 
 Make sure the deployment is successful.
 
+.. note:: More information `Managing Logging Profiles in Shared Security`_.
+
+.. _Managing Logging Profiles in Shared Security: https://techdocs.f5.com/en-us/bigiq-7-1-0/big-iq-security/managing-logging-profiles-in-shared-security.html
+
+
 DoS Log Destinations and Publisher creation using API/AS3
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-1. From the lab environment, launch a xRDP/noVNC session to have access to the Ubuntu Desktop. 
-To do this, in your lab environment, click on the *Access* button of the *Ubuntu Lamp Server* 
-system and select *noVNC* or *xRDP*.
-
-.. note:: Modern laptops with higher resolutions you might want to use 1440x900 and once XRDP is launched Zoom to 200%.
-
-.. image:: ../../pictures/udf_ubuntu.png
-    :align: left
-    :scale: 40%
-
-|
-
+1. From the lab environment, launch a remote desktop session to have access to the Ubuntu Desktop. 
 
 Open Chrome and Postman.
 
@@ -186,7 +182,7 @@ obtain a new token by re-sending the ``BIG-IQ Token``
           }
       }
 
-3. Navigate to Device tab and re-discover/re-import SJC-vBIGIP01.termmarc.com.
+3. Navigate to Devices tab and re-discover/re-import SJC-vBIGIP01.termmarc.com.
 
 
 DoS Logging Profile creation
@@ -510,17 +506,7 @@ Expand the dimmensions to show *Transaction Outcomes* and *Client IPs*.
 Annex | Run the entire lab configuration part with 1 single API call using AS3
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-1. From the lab environment, launch a xRDP/noVNC session to have access to the Ubuntu Desktop. 
-To do this, in your lab environment, click on the *Access* button of the *Ubuntu Lamp Server* 
-system and select *noVNC* or *xRDP*.
-
-.. note:: Modern laptops with higher resolutions you might want to use 1440x900 and once XRDP is launched Zoom to 200%.
-
-.. image:: ../../pictures/udf_ubuntu.png
-    :align: left
-    :scale: 40%
-
-|
+1. From the lab environment, launch a remote desktop session to have access to the Ubuntu Desktop. 
 
 Open Chrome and Postman.
 
@@ -690,7 +676,7 @@ obtain a new token by re-sending the ``BIG-IQ Token``
             }
         }
 
-3. Navigate to Device tab and re-discover/re-import SJC-vBIGIP01.termmarc.com.
+3. Navigate to Devices tab and re-discover/re-import SJC-vBIGIP01.termmarc.com.
 
 4. Run section *Generate baseline legitimate traffic and trigger the DoS attacks*
 

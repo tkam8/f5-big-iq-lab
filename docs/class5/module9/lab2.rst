@@ -1,6 +1,9 @@
 Lab 9.2: Azure BIG-IP VE Creation
 ---------------------------------
+.. include:: /accesslab.rst
 
+Tasks
+^^^^^
 Prerequisites to this module:
   - Run the script creation file at the end of the previous lab
 
@@ -29,7 +32,8 @@ The Cloud Environment is where our BIG-IP will be deployed. If your credentials 
 Several parts of the Cloud Environment you may not want to be configured because you are planning on using F5 Declarative Onboarding. 
   - Device Templates are used for Service Scaling Groups, not a single or cluster of BIG-IP.
   - You must accept Programmatic Deployments for any BIG-IP you wish to deploy from the BIG-IQ interface, not doing this will result in a failure to launch.
-  - Two types of Licensing, Utility will utilize the instance billing directly to the consumer, BYOL billing would be handled from a BIG-IQ License Pool. Alternatively, if you are planning to have F5 Declarative Onboarding specify a license, you will not define anything
+  - Two types of Licensing, Utility will utilize the instance billing directly to the consumer, 
+    BYOL billing would be handled from a BIG-IQ License Pool. Alternatively, if you are planning to have F5 Declarative Onboarding specify a license, you will not define anything
 
 3. Creating your BIG-IP in Azure
 
@@ -83,6 +87,8 @@ BIG-IP VE Creation is complete from here we can see BIG-IQ harvested the Public 
 Lab 2 of this module will cover Onboarding the newly created VE.
 
   |image10|
+
+.. Note:: If you try to open BIG-IP web interface, to bypass the Google Chrome “Your connection is not private” Warning, just type in blindly ``thisisunsafe``.
 
 See `Class 2 Module 5 Lab 6`_ for help with Troubleshooting.
 

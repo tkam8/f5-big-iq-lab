@@ -1,5 +1,10 @@
 Lab 2.6: Page Load Time
 -----------------------
+
+.. include:: /accesslab.rst
+
+Tasks
+^^^^^
 1. Login as **paula** in BIG-IQ.
 
 2. Open service ``security_site16_boston`` located under ``airport_security`` application.
@@ -40,17 +45,7 @@ then Local Traffic  ››  Profiles : Services : HTTP. Click on ``HTTP_Profile`
           Import AS3 template called ``AS3-F5-HTTP-lb-page-load-time-template-big-iq-default`` 
           from https://github.com/f5devcentral/f5-big-iq and use switch template feature.
 
-6. From the lab environment, launch a xRDP/noVNC session to have access to the Ubuntu Desktop. 
-   To do this, in your lab environment, click on the *Access* button of the *Ubuntu Lamp Server* system 
-   and select *noVNC* or *xRDP*.
-
-.. note:: Modern laptops with higher resolutions you might want to use 1440x900 and once XRDP is launched Zoom to 200%.
-
-.. image:: ../../pictures/udf_ubuntu.png
-    :align: left
-    :scale: 60%
-
-|
+6. From the lab environment, launch a remote desktop session to have access to the Ubuntu Desktop. 
 
 7. Open Chrome and navigate on the website https\:\/\/site16.example.com. 
    If you open the developer tools in the browser (ctrl+shift+i), 
