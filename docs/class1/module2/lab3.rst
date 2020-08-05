@@ -1,8 +1,10 @@
 Lab 2.3: Deploying AS3 Templates on BIG-IQ
 ------------------------------------------
 
+.. include:: /accesslab.rst
+
 Task 6 - Create custom HTTP AS3 Template on BIG-IQ
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. warning:: AS3 Templates cannot be created through BIG-IQ UI but only using the API in 6.1.
              Go to `Module 3`_ for more details on how to create a AS3 Template using the UI start BIG-IQ 7.0.
@@ -21,7 +23,7 @@ The following examples demonstrate how these goals can be met with JSON Schema.
 
 1. Enforcing Changes to AS3 Classes
 
-In order to trigger schema enforcement of each class in the template other than Tenant and Application, specify the class name(s) and reference(s) in the Application class additionalProperties, like this:
+In order to trigger schema enforcement of each class in the template other than Tenant and Application, specify the class name(s) and reference(s) in the application class additionalProperties, like this:
 
 .. code-block:: yaml
    :linenos:
@@ -87,7 +89,7 @@ To act on a handful of properties and reject all others, make sure to include a 
 
 6. Disallowing One or More Classes
 
-To reject an entire class, specify this not anyOf properties clause within the Application class additionalProperties object:
+To reject an entire class, specify this not anyOf properties clause within the application class additionalProperties object:
 
 .. code-block:: yaml
 
@@ -129,9 +131,9 @@ In this task, we will create a template which require a Service_HTTP object, for
    .. warning:: The token timeout is set to 5 min. If you get the 401 authorization error, request a new token.
 
 2. Copy the below example of an AS3 service template into the Postman **BIG-IQ AS3 Template Creation** call.
-It will create a new template in BIG-IQ AS3 Service Catalogue:
+   It will create a new template in BIG-IQ AS3 Service Catalogue:
 
-    POST https\:\/\/10.1.1.4/mgmt/cm/global/appsvcs-templates
+    ``POST https://10.1.1.4/mgmt/cm/global/appsvcs-templates``
 
 .. code-block:: yaml
    :linenos:
@@ -230,7 +232,7 @@ You can see the Template in JSON format if you click on it.
 
 
 Task 7 - Admin set RBAC for Oliva on BIG-IQ
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Let's update now Oliva's service catalog.
 
@@ -242,7 +244,7 @@ Click **Save & Close**.
 
 
 Task 8 - Deploy the HTTP Application Service using a Custom Template
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Now, let's deploy an application as **Oliva** using the AS3 template previously created in Task 6. Note in the below declaration, 
 the virtualPort is set to 9090 while in the template, we force the virtualPort to a specific value and accept no other.
@@ -252,10 +254,11 @@ the virtualPort is set to 9090 while in the template, we force the virtualPort t
 
    .. warning:: The token timeout is set to 5 min. If you get the 401 authorization error, request a new token.
 
-2. Copy below example of an AS3 Declaration into the body of the **BIG-IQ AS3 Declaration** collection in order to create the service on the BIG-IP through BIG-IQ:
-
-POST https\:\/\/10.1.1.4/mgmt/shared/appsvcs/declare?async=true
-
+2. The method and URL used will be ``POST https://10.1.1.4/mgmt/shared/appsvcs/declare?async=true``.
+   Copy/Paste the AS3 declaration from the validator to the body in Postman.
+   
+   
+   This will give you an ID which you can query using the **BIG-IQ Check AS3 Deployment Task**.
 
 .. code-block:: yaml
    :linenos:
@@ -316,12 +319,9 @@ POST https\:\/\/10.1.1.4/mgmt/shared/appsvcs/declare?async=true
         }
     }
 
-  
-This will give you an ID which you can query using the **BIG-IQ Check AS3 Deployment Task**.
-
 3. Use the **BIG-IQ Check AS3 Deployment Task** Postman calls to ensure that the AS3 deployment is successfull without errors: 
 
-   GET https\:\/\/10.1.1.4/mgmt/shared/appsvcs/task/<id>
+   ``GET https://10.1.1.4/mgmt/shared/appsvcs/task/<id>``
 
 4. As expected, note the error message returned due to the static value set in the template::
 
@@ -331,7 +331,7 @@ This will give you an ID which you can query using the **BIG-IQ Check AS3 Deploy
 
 5. Update the ``virtualPort`` to **8080** and re-send the declaration.
 
-6. Login on **BOS-vBIGIP01.termmarc.com** and verify the Application is correctly deployed in partition Task8.
+6. Login on **BOS-vBIGIP01.termmarc.com** and verify the application is correctly deployed in partition Task8.
 
 7. Login on **BIG-IQ** as Olivia, go to Applications tab and check the application is displayed and analytics are showing.
 
@@ -339,8 +339,8 @@ This will give you an ID which you can query using the **BIG-IQ Check AS3 Deploy
              You can move those application services using the GUI, the `Move/Merge API`_ or create it directly into 
              Application in BIG-IQ using the `Deploy API`_ to define the BIG-IQ Application name.
 
-.. _Move/Merge API: https://clouddocs.f5.com/products/big-iq/mgmt-api/latest/ApiReferences/bigiq_public_api_ref/r_public_api_references.html
-.. _Deploy API: https://clouddocs.f5.com/products/big-iq/mgmt-api/latest/ApiReferences/bigiq_public_api_ref/r_public_api_references.html
+.. _Move/Merge API: https://clouddocs.f5.com/products/big-iq/mgmt-api/latest/ApiReferences/bigiq_public_api_ref/r_as3_move_merge.html
+.. _Deploy API: https://clouddocs.f5.com/products/big-iq/mgmt-api/latest/ApiReferences/bigiq_public_api_ref/r_as3_deploy.html
 
 |lab-3-4|
 

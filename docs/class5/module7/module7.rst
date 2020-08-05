@@ -1,5 +1,5 @@
-Module 7: Declarative Onboarding and VE Creation on VMware (new 7.0)
-====================================================================
+Module 7: Declarative Onboarding and VE Creation on VMware
+==========================================================
 
 BIG-IQ Centralized Management makes it easy for you to create, configure, and manage BIG-IP VE devices in a VMWare environment.
 
@@ -12,13 +12,18 @@ To start managing a BIG-IP VE device in a cloud environment, you'll need to comp
 
 .. Note:: The VMWare environment has already been set up for you, the above steps are for reference.
 
-BIG-IQ supports these VMware cloud environments for auto-scaling:  
+BIG-IQ supports these VMware cloud environments:  
   - VMware vCenter version 6.0 (ESXi version 5.5 and 6.0)
-  - VMware vCenter version 6.5 (ESXi version  6.0 and 6.5)
+  - VMware vCenter version 6.5 (ESXi version 6.0 and 6.5)
 
 .. Warning:: If you identify the VE installation destination using a VMWare cluster name, the VMware host must have DRS enabled before you try to deploy the SSG, or the deployment will fail. If you use the ESXi hostname, the DRS setting is optional.
 
 .. Note:: After you save the configuration for the BIG-IP VE devices you created, BIG-IQ sends an API call to apply that configuration to the targeted BIG-IP VE devices. After BIG-IQ successfully applies the configuration, it then discovers and imports the services the device is licensed for, this means you don't have to discover and import services in a separate step.
+
+.. raw:: html
+
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/zsZo8-faKe8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 
 .. toctree::
    :maxdepth: 1

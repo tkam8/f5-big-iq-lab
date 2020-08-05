@@ -6,6 +6,11 @@ to the Application dashboard. Note this will not "re-deploy" the application or 
 Rather this will take the virtual server and all its child objects and group them together as an Application 
 within the Application dashboard of BIG-IQ.
 
+.. include:: /accesslab.rst
+
+Tasks
+^^^^^
+
 1. Login to BIG-IQ as **david** by opening a browser and go to: ``https://10.1.1.4``
 
 2. Navigate to Applications > Applications. Click on **Create** to Create an Application Service:
@@ -44,6 +49,7 @@ Move *vip134* over to the **Selected** column and then scroll down.
 .. note:: The warning you see below in the **Application Objects** section is informing you that you don't have an Analytics profile attached to the VIP, 
           this is required to collect HTTP analytics on BIG-IQ. You will create the application without the analytics
           profile, and then you will go back and add it later in the lab.
+          The warning will show if there is no analytics profile attached to at least one of the VIP selected.
 
 .. note:: You can add up to 5 Virtual IP addresses to a single Legacy Application Service.
 
@@ -71,7 +77,7 @@ Move *vip134* over to the **Selected** column and then scroll down.
 
 5. Click **Create**.
   
-6. Check the Application ``LAB_module6`` has been created. Click on it to see the application.
+6. Check the application ``LAB_module6`` has been created. Click on it to see the application.
    You should see an application called ``legacy-app-service``. Notice the label *LEGACY* is showing on the applications grid/tile.
    This is an indication that this application was not created with a template, and will be treated as a **legacy** 
    application.

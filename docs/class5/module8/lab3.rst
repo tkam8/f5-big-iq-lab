@@ -1,6 +1,9 @@
 Lab 8.3: Device Onboarding with BIG-IQ
 --------------------------------------
+.. include:: /accesslab.rst
 
+Tasks
+^^^^^
 Prerequisites to this module:
 - A BIG-IP available that you would like to target with F5 Declarative Onboarding
 - Connectivity to/from the BIG-IQ (CM/DCD) and the BIG-IP if you are going to onboard the BIG-IP into BIG-IQ
@@ -19,12 +22,21 @@ The two main differences between DO native and BIG-IQ with DO are the **BIG-IQ S
   - The BIG-IQ settings class is used to replace the Discovery and Import process of traditional BIG-IPs into the BIG-IQ platform.
   - The License class can be used to license the BIG-IP VE with a regKey directly or utilizing a licensePool from either the Current BIG-IQ or a different BIG-IQ
 
-Our VE created in the previous lab was a single instance with 1-NIC and a BYOL license. From our perspective, DO doesn't need many options, BIG-IQ management, ASM / AVR provisioned, User, and a License. Then it will be ready for AS3 or Application Templates.
+Our VE created in the previous lab was a single instance with 1-NIC and a BYOL license. 
+From our perspective, DO doesn't need many options, BIG-IQ management, ASM / AVR provisioned, User, and a License. 
+Then it will be ready for AS3 or Application Templates.
 
-  |image10|
-  |image11|
-  |image12|
-  |image13|
+Check the BIG-IQ Settings and Provision options to add the class to our configuration, 
+our newly created BIG-IP VE has never been configured with any configuration so we can leave the default 
+options for the BIG-IQ Settings class. Add in our demo hostname, under-provisioning make sure that AVR and AWAF are configured with nominal.
+
+.. warning:: In the License class, you must supply the same BIG-IP admin username and password as the ones entered for the **User class**. 
+             Also the Hypervisor needs to be selected only if reachable = false.
+
+|image10|
+|image11|
+|image12|
+|image13|
 
 .. Note:: You do not need to have created the BIG-IP VE from BIG-IQ to send Declarative Onboarding payloads. If you did create the VE from BIG-IQ, it would show up in the BIG-IP VE drop-down list; if you did not create it, you would need to specify the Target information.
 
@@ -47,13 +59,13 @@ Once onboarding is complete, the BIG-IP VE will be a managed BIG-IP within BIG-I
 .. |image9| image:: pictures/image9.png
    :width: 60%
 .. |image10| image:: pictures/image10.png
-   :width: 60%
+   :width: 100%
 .. |image11| image:: pictures/image11.png
-   :width: 60%
+   :width: 100%
 .. |image12| image:: pictures/image12.png
-   :width: 60%
+   :width: 100%
 .. |image13| image:: pictures/image13.png
-   :width: 60%
+   :width: 100%
 .. |image14| image:: pictures/image14.png
    :width: 60%
 .. |image15| image:: pictures/image15.png

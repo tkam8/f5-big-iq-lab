@@ -10,7 +10,12 @@ of the legacy application service on the BIG-IQ dashboard. This would be the rec
 
 .. _known issue: https://techdocs.f5.com/kb/en-us/products/big-iq-centralized-mgmt/releasenotes/related/relnote-supplement-big-iq-central-mgmt-7-1-0.html#A899789
 
-1. Login to BIG-IQ as **david**. Delete the Application **legacy-app-service**.
+.. include:: /accesslab.rst
+
+Tasks
+^^^^^
+
+1. Login to BIG-IQ as **david**. Delete the application **legacy-app-service**.
 
 2. Delete the ``legacy-app-service``.
 
@@ -22,7 +27,7 @@ of the legacy application service on the BIG-IQ dashboard. This would be the rec
 
 Follow `Lab 1`_  to re-create the legacy application service. This time select **Part of an existing Application** and
 choose **LAB_module6**. Then select **Using existing device configuration**. For name use **legacy-app-service** then 
-select **BOS-vBIGIP01.termmarc.com**. Choose **HTTP+TCP** for the Application Service, and then move **vip134** to the **Selected** column.
+select **BOS-vBIGIP01.termmarc.com**. Choose **HTTP+TCP** for the application service, and then move **vip134** to the **Selected** column.
 
 Scroll down and notice there is no warning for the **Profile HTTP Analytics** as we did not change the virtual server configuration
 from the previous steps. Click **Create**.
@@ -56,7 +61,7 @@ Next add the ``legacy-app-service`` Role and then Click **Save & Close**.
   :scale: 40%
   :align: center
 
-6. You are now on the Paula's Application Services dashboard. Click on Server on the right side of the screen.
+6. You are now on the Paula's Application Services dashboard. Click on Servers on the right side of the screen.
 
 .. image:: ../pictures/module6/lab-3-6.png
   :scale: 40%

@@ -1,6 +1,9 @@
 Lab 9.3: Device Onboarding with BIG-IQ
 --------------------------------------
+.. include:: /accesslab.rst
 
+Tasks
+^^^^^
 Prerequisites to this module:
   - A BIG-IP available that you would like to target with F5 Declarative Onboarding
   - Connectivity to/from the BIG-IQ (CM/DCD) and the BIG-IP if you are going to onboard the BIG-IP into BIG-IQ
@@ -31,14 +34,20 @@ The two main differences between DO native, and BIG-IQ with DO, are the **BIG-IQ
 
 2. Build our Declarative Onboarding configuration
 
-Our VE created in the previous lab was a single instance with 1-NIC and a BYOL license. From our perspective, DO doesn't need many options, BIG-IQ management, ASM / AVR provisioned, and a License. Then it will be ready for AS3 or Application Templates.
+Our VE created in the previous lab was a single instance with 1-NIC and a BYOL license. 
+From our perspective, DO doesn't need many options, BIG-IQ management, ASM / AVR provisioned, and a License. 
+Then it will be ready for AS3 or Application Templates.
 
-Check the BIG-IQ Settings and Provision options to add the class to our configuration, our newly created BIG-IP VE has never been configured with any configuration so we can leave the default options for the BIG-IQ Settings class. Add in our demo hostname, under-provisioning make sure that AVR and AWAF are configured with nominal.
+Check the BIG-IQ Settings and Provision options to add the class to our configuration, 
+our newly created BIG-IP VE has never been configured with any configuration so we can leave the default 
+options for the BIG-IQ Settings class. Add in our demo hostname, under-provisioning make sure that AVR and AWAF are configured with nominal.
 
-  |image16|
-  |image23|
-  |image17|
-  |image26|
+.. warning:: In the License class, the Hypervisor needs to be selected only if reachable = false.
+
+|image16|
+|image23|
+|image17|
+|image26|
 
 .. Note:: Azure does not require the use of an SSH key to log into the instance to be configured.
 
@@ -73,9 +82,9 @@ Once onboarding is complete, the BIG-IP VE will be a managed BIG-IP within BIG-I
 .. |image15| image:: pictures/image15.png
    :width: 60%
 .. |image16| image:: pictures/image16.png
-   :width: 60%
+   :width: 100%
 .. |image17| image:: pictures/image17.png
-   :width: 60%
+   :width: 100%
 .. |image18| image:: pictures/image18.png
    :width: 50%
 .. |image19| image:: pictures/image19.png
@@ -83,11 +92,11 @@ Once onboarding is complete, the BIG-IP VE will be a managed BIG-IP within BIG-I
 .. |image20| image:: pictures/image20.png
    :width: 60%
 .. |image23| image:: pictures/image23.png
-   :width: 60%
+   :width: 100%
 .. |image24| image:: pictures/image24.png
    :width: 50%
 .. |image25| image:: pictures/image25.png
    :width: 50%
 .. |image26| image:: pictures/image26.png
-   :width: 50%
+   :width: 100%
 

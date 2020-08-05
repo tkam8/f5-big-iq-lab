@@ -1,6 +1,9 @@
 Lab 3.1: Create a backup schedule
 ---------------------------------
+.. include:: /accesslab.rst
 
+Tasks
+^^^^^
 Now, we can create our backup schedule that references this dynamic group.
 
 1. Click on the Back Up & Restore on the left-hand menu
@@ -33,6 +36,8 @@ In the Backup Archive section, enter the following:
 | Archive     | **Store Archive Copy of Backup**   |
 +=============+====================================+
 | Location    | **SCP**                            |
++-------------+------------------------------------+
+| IP Address  | **10.1.10.80**                     |
 +-------------+------------------------------------+
 | User name   | **F5**                             |
 +-------------+------------------------------------+

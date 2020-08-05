@@ -1,6 +1,8 @@
 Lab 1.1: Simple APM Configuration via BIG-IQ (secure website with basic authentication)
 ---------------------------------------------------------------------------------------
 
+.. include:: /accesslab.rst
+
 Workflow
 ^^^^^^^^
 
@@ -179,17 +181,7 @@ under the application called ``LAB_Access``.
   :scale: 60%
   :align: center
 
-3. From the lab environment, launch a xRDP/noVNC session to have access to the Ubuntu Desktop. 
-To do this, in your lab environment, click on the *Access* button
-of the *Ubuntu Lamp Server* system and select *noVNC* or *xRDP*.
-
-.. note:: Modern laptops with higher resolutions you might want to use 1440x900 and once XRDP is launched Zoom to 200%.
-
-.. image:: ../../pictures/udf_ubuntu.png
-    :align: left
-    :scale: 60%
-
-|
+3. From the lab environment, launch a remote desktop session to have access to the Ubuntu Desktop. 
 
 Open Chrome and navigate to the following URL: ``https://10.1.10.119`` and 
 login with username: paula, password: paula

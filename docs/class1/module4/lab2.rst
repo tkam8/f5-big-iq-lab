@@ -1,6 +1,11 @@
 Lab 4.2: DNS Application Service Creation
 -----------------------------------------
 
+.. include:: /accesslab.rst
+
+Tasks
+^^^^^
+
 1. Connect as **paula**. Navigate to the ``airport_security`` Application.
 
 This Application is composed of 3 Application Services:
@@ -85,7 +90,7 @@ Notice the new Application Service have been added under *APPLICATION SERVICES*.
   :scale: 60%
   :align: center
 
-6. Now, let's look on the BIG-IP and verify the Application is correctly deployed in partition ``security``.
+6. Now, let's look on the BIG-IP and verify the application is correctly deployed in partition ``security``.
    Login to ``BOSvBIGIP01.termmarc.com`` BIG-IP from lab environment. Select the partition ``security`` and look at 
    the objects created on the BIG-IP.
 

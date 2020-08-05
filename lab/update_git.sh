@@ -40,8 +40,7 @@ if [[  $currentuser == "root" ]]; then
         rm -rf f5-* awx gitlab ldap splunk tools traffic-scripts scripts crontab.txt bigiq_version* build* > /dev/null 2>&1
 
         echo "Install new scripts..."
-        # GIT_LFS_SKIP_SMUDGE=1 will skip download files in the LFS (ucs files)
-        GIT_LFS_SKIP_SMUDGE=1 git clone https://github.com/f5devcentral/f5-big-iq-lab.git --branch develop
+        git clone https://github.com/f5devcentral/f5-big-iq-lab.git --branch develop
         mv $home/f5-big-iq-lab/lab/* $home
 
         if [[  $env == "udf" ]]; then
@@ -83,6 +82,9 @@ if [[  $currentuser == "root" ]]; then
     ps -ef | grep vnc | grep -v grep
     ps -ef | grep websockify | grep -v grep
 
+    ## WA UDF BIQPROJ-17471 Failed to get cm-bigip-allBigIpDevices device
+    #sleep 600 && su - f5student -c "$home/tools/wa_restart_restjavad_bigiq.sh > $home/tools/logs/wa_restart_restjavad_bigiq.log 2>&1" &
+
     # Cleanup docker
     docker kill $(docker ps -q)
     docker stop $(docker ps -q)
@@ -103,7 +105,7 @@ if [[  $currentuser == "root" ]]; then
     docker run --restart=always --name=f5-hello-world-blue -dit -p 8081:8080 -e NODE='Blue' f5devcentral/f5-hello-world
     docker run --restart=always --name=f5website -dit -p 8082:80 -e F5DEMO_APP=website f5devcentral/f5-demo-httpd
     docker run --restart=always --name=nginx -dit -p 8083:80 --cap-add NET_ADMIN nginx
-    
+
     ### Add delay, loss and corruption to the nginx web app
     docker_nginx_id=$(docker ps | grep nginx | awk '{print $1}')
     docker exec $docker_nginx_id apt-get update
@@ -151,6 +153,9 @@ if [[  $currentuser == "root" ]]; then
             --detach osixia/openldap:1.2.4 \
             --copy-service
 
+    # TACAC+ https://hub.docker.com/r/dchidell/docker-tacacs
+    docker run --restart=always --name=tacacs -dit -p 49:49 dchidell/docker-tacacs
+
     ### Copy some custom files in hackazon docker for labs
     # App Troubleshooting
     docker_hackazon_id=$(docker ps | grep hackazon | awk '{print $1}')
@@ -162,6 +167,7 @@ if [[  $currentuser == "root" ]]; then
     base64 /dev/urandom | head -c 300000000 > grosfichier.html
     docker cp grosfichier.html $docker_hackazon_id:/var/www/hackazon/web
     rm -f grosfichier.html
+    # fix permissions
     docker exec $docker_hackazon_id sh -c "chown -R www-data:www-data /var/www/hackazon/web"
 
     ### Configure AWX
@@ -180,13 +186,20 @@ if [[  $currentuser == "root" ]]; then
     docker exec $docker_codeserver_id sh -c "sudo apt-get update"
     docker exec $docker_codeserver_id sh -c "sudo apt-get install -y python3 python3-dev python3-pip python3-jmespath"
     docker exec $docker_codeserver_id sh -c "pip3 install ansible"
+    # Download latest F5 Fast extention
+    wget $(curl -s https://api.github.com/repos/DumpySquare/vscode-f5-fast/releases | grep browser_download_url | grep '.vsix' | head -n 1 | cut -d '"' -f 4) 
+    docker cp *.vsix $docker_codeserver_id:/tmp
+    docker exec $docker_codeserver_id code-server --install-extension /tmp/$(ls *vsix)
+    docker exec $docker_codeserver_id code-server --install-extension dawhite.mustache
+    docker restart $docker_codeserver_id
+    rm *.vsix
 
     ### Ldap connectivity check
     ldapsearch -x -H ldap://localhost -b dc=f5demo,dc=com -D "cn=admin,dc=f5demo,dc=com" -w ldappass > $home/ldap/f5-ldap.log
 
     ### Start Gitlab Container
-    export GITLAB_HOME="$home/gitlab/"
-    docker-compose -f $home/gitlab/docker-compose.yml up -d
+    #export GITLAB_HOME="$home/gitlab/"
+    #docker-compose -f $home/gitlab/docker-compose.yml up -d
 
     docker images
     docker ps -a
@@ -209,12 +222,8 @@ if [[  $currentuser == "root" ]]; then
     json="{\"message\":\"Welcome to BIG-IQ Lab $(date +"%Y")! \n\n$fortune\n\n\",\"isEnabled\":true}"
     curl -s -k -u "admin:purple123" -H "Content-Type: application/json" -X PUT -d "$json" https://10.1.1.4/mgmt/shared/login-ui-message | jq .
 
-    fortuneInBashrc=$(cat $home/.bashrc | grep "fortune" | wc -l)
-    if [[ $fortuneInBashrc == 0 ]]; then
-        # Customize ~/.bashrc
-        echo "/usr/games/fortune -s literature" >> $home/.bashrc
-        echo "echo" >> $home/.bashrc
-    fi
+    sed -i '/fortune/d' $home/.bashrc
+    echo "/usr/games/fortune -s literature;echo" >> $home/.bashrc
 
     echo "If postman does not open using the link on the desktop, open a terminal and launch it from there.
 

@@ -7,7 +7,20 @@ uploads can be performed ad-hoc or as part of a F5 support case. If a
 support case is specified in the upload job, the qkview(s) will
 automatically be associated/linked to the support case.
 
-.. warning:: Re-license BIG-IQ CM with an Eval License in order to run this lab.
+.. raw:: html
+
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/4zXcX90KRyc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+.. include:: /accesslab.rst
+
+Tasks
+^^^^^
+
+.. warning::
+
+      The lab environement is using development license. In order to run this lab, 
+      ask your F5 representative to provide evaluation license, then re-license the BIG-IQ CM
+      prior starting this lab (go to System > This Device > Licensing, Reactivate Base Registration Key.
 
 1. Navigate to **Monitoring** on the top menu bar and then to
    **REPORTS-> Device-> iHealth** -> **Configuration** on the left-hand
@@ -45,7 +58,7 @@ automatically be associated/linked to the support case.
    | Name: **QKViewUpload5346** (append the last 4 digits of your cell
      number to make this request unique)
    | Credentials: **<Select the credentials you just stored in step 5>**
-   | Devices: Select **ip-10-1-1-7.us-west-2.compute.internal**
+   | Devices: Select **SEA-vBIGIP01.termmarc.com**
 
    |image98|
 
@@ -72,20 +85,6 @@ automatically be associated/linked to the support case.
    under the Report Column
 
    |image101|
-
-6. You can also run the Upgrade Advisor from the BIG-IQ if you are
-   running an older version of code. Select **Upgrade Advisor Reports**
-   from the left-hand menu bar and then click the **Create** button in
-   the main window pane.
-
-7. Give your Upgrade Advisor Task a name and select the **ip-10-1-1-7**
-   device. Choose your Target Version and then **Save & Close**
-
-8. Click on the **Upgrade Advisor Reports** on the left-hand menu bar
-   and your new report should show up shortly. You can see the status of
-   the report generation by clicking **Tasks** on the left-hand
-   menu-bar. Click on the **Target Software Version** column to view
-   your results.
 
 
    .. |image93| image:: media/image91.png

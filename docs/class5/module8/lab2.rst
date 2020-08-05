@@ -1,6 +1,9 @@
 Lab 8.2: AWS BIG-IP VE Creation
 -------------------------------
+.. include:: /accesslab.rst
 
+Tasks
+^^^^^
 Prerequisites to this module:
   - Run the script creation file at the end of the previous lab
 
@@ -17,7 +20,8 @@ IAM role/rolePolicy/InstanceProfile containing
   - Create
   - Delete 
 
-.. Note:: VE Creation may not require the BIG-IQ and created BIG-IP's to communicate (Utility Licensing or Declarative Onboarding). The BIG-IQ targets the public AWS API for VE Creation and the BIG-IP VE public IP for Onboarding.
+.. Note:: VE Creation may not require the BIG-IQ and created BIG-IP's to communicate (Utility Licensing or Declarative Onboarding). 
+          The BIG-IQ targets the public AWS API for VE Creation and the BIG-IP VE public IP for Onboarding.
 
 1. Verify your BIG-IQ "Cloud Provider" for AWS
 
@@ -88,6 +92,8 @@ BIG-IP VE Creation is complete from here we can see BIG-IQ harvested the Public 
           through the cloud provider UI or API.
 
 Lab 2 of this module will cover Onboarding the newly created AWS VE.
+
+.. Note:: If you try to open BIG-IP web interface, to bypass the Google Chrome “Your connection is not private” Warning, just type in blindly ``thisisunsafe``.
 
 See `Class 2 Module 4 Lab 6`_ for help with Troubleshooting.
 

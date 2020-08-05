@@ -1,11 +1,14 @@
+Lab environment details
+^^^^^^^^^^^^^^^^^^^^^^^
 
-.. note:: Crendentials (login/password) available under lab's Documentation > Credentials section for each components.
+The Linux box in the environment has multiple cron jobs that are generating traffic that populates the Monitoring tab 
+and Application dashboard.
 
-List of Virtual Servers and Applications Servers where various type of traffic
-is being send to (check ``crontab`` config for more details).
+Below table shows the list of **Virtual Servers** and **Web Applications Servers** where various type of traffic
+is being sent (check ``crontab`` config for more details).
 
-.. warning:: Make sure the IP address on the external network 10.1.10.0/24 is defined in lab environment on the BIG-IP external interface
-             where you are deploying the Application Service or VIP
+.. warning:: Make sure the IP address on the external network 10.1.10.0/24 is defined in lab environment on 
+             the BIG-IP external interface where you are deploying the application service or VIP.
 
 +-------------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------+
 | Virtual IP addresses where the traffic generator sends HTTP clean traffic                 | ``10.1.10.110`` to ``10.1.10.142``                                                       |
@@ -20,7 +23,7 @@ is being send to (check ``crontab`` config for more details).
 +-------------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------+
 | Virtual IP address(es) where the traffic generator sends DDOS attack (class 11)           | ``10.1.10.136``                                                                          |
 +-------------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------+
-| Applications Servers (Pool Members) (running in docker containers)                        | ``10.1.20.110`` to ``10.1.20.123``                                                       |
+| Web Applications Servers (Pool Members) (running in docker containers)                    | ``10.1.20.110`` to ``10.1.20.123``                                                       |
 |                                                                                           |                                                                                          |
 |                                                                                           |                                                                                          |
 |                                                                                           | - Port ``80``: hackazon application                                                      |
@@ -28,9 +31,13 @@ is being send to (check ``crontab`` config for more details).
 |                                                                                           | - Port ``8081``: f5-hello-world application                                              |
 |                                                                                           | - Port ``8082``: f5-demo-httpd application                                               |
 |                                                                                           | - Port ``8083``: nginx application (delay 300ms loss 30% corrupt 30%)                    |
-|                                                                                           | - Port ``445``: ASM Policy Validator                                                     |
+|                                                                                           | - Port ``446``: ASM Policy Validator                                                     |
 +-------------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------+
 
 .. note:: IPs from ``10.1.10.110`` to ``10.1.10.142`` have a corresponding FQDN named from ``site10.example.com`` to ``site42.example.com``.
 
-|repoinfo|
+**Lab Diagram**:
+
+.. image:: /pictures/diagram_udf.png
+   :align: center
+   :scale: 30%

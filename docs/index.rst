@@ -21,16 +21,11 @@ populates the Monitoring tab and Application dashboard.
 
 This lab environment is available for internal F5 users.
 
-Looking for F5 Agility 2020 BIG-IQ Automation 101 labs? click `here`_.
-
-.. _here: ./agility2020-bigiq-101/
-
 .. toctree::
    :maxdepth: 1
    :caption: Contents/Lab:
    :glob:
 
-   agility2020-bigiq-101/index
    class1/class1
    class2/class2
    class3/class3
@@ -46,9 +41,11 @@ Looking for F5 Agility 2020 BIG-IQ Automation 101 labs? click `here`_.
 
 ------------
 
+**Lab Diagram**:
+
 .. image:: ./pictures/diagram_udf.png
    :align: center
-   :scale: 60%
+   :scale: 40%
 
 **Networks**:
 
@@ -70,6 +67,7 @@ Looking for F5 Agility 2020 BIG-IQ Automation 101 labs? click `here`_.
 - 1x BIG-IP 15.1 / 1 standalone (SJC)
 - LAMP Server - Radius, LDAP, DHCP, xRDP, noVNC, Splunk, Application Servers (Hackazon, dvmw, f5 demo app), Traffic Generator (HTTP, Access, DNS, Security), Samba, AWX/Ansible Tower, Visual Studio Code.
 - SSLo Service TAP and L3/L2
+- Venafi Trust Protection 20.1
 - ESXi 6.5.0 + vCenter
 
 **Components available**:
@@ -96,7 +94,7 @@ Looking for F5 Agility 2020 BIG-IQ Automation 101 labs? click `here`_.
 
 .. _BIG-IQ Knowledge Center: https://support.f5.com/csp/knowledge-center/software/BIG-IQ?module=BIG-IQ%20Centralized%20Management&version=7.1.0
 .. _F5 BIG-IQ API: https://clouddocs.f5.com/products/big-iq/mgmt-api/latest/
-.. _Light Product Demo: http://engage.f5.com/BIG-IP-demo
+.. _Light Product Demo: https://www.f5.com/products/automation-and-orchestration/big-iq/app-visibility-demo
 .. _Troubleshoot Your Application Health and Performance with F5: https://interact.f5.com/troubleshooting-your-application-health-webinar.html
 .. _AS3 Documentation: https://clouddocs.f5.com/products/extensions/f5-appsvcs-extension/latest/
 .. _DO Documentation: https://clouddocs.f5.com/products/extensions/f5-declarative-onboarding/latest/
@@ -109,7 +107,7 @@ Looking for F5 Agility 2020 BIG-IQ Automation 101 labs? click `here`_.
 
 - `Look for the BIG-IQ videos on the YouTube DevCentral Channel`_
 
-.. _Look for the BIG-IQ videos on the YouTube DevCentral Channel: https://www.youtube.com/user/devcentral/search?query=BIG-IQ
+.. _Look for the BIG-IQ videos on the YouTube DevCentral Channel: https://www.youtube.com/playlist?list=PLyqga7AXMtPMw9ob6u73-anE6BWRsPhLr
 
 ------------
 
